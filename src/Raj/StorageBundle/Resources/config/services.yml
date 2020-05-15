@@ -1,0 +1,16 @@
+parameters:
+  agilezen.class: Raj\StorageBundle\Utils\AgileZen
+  agilezen.apikey: '36a8043c7d7c46b0b1da479384079909'
+  agilezen.apiurl: 'https://agilezen.com/api/v1/'
+
+  storage_manager.class: Raj\StorageBundle\Utils\StorageManager
+
+services:
+  agilezen:
+    class: "%agilezen.class%"
+    arguments:    [%agilezen.apikey%, %agilezen.apiurl%]
+
+  storage_manager:
+    class: "%storage_manager.class%"
+    calls:
+       - [ setRestClient, [ @agilezen ] ]

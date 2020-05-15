@@ -1,0 +1,19 @@
+storage_direct:
+    pattern:  /storage/direct/{url}
+    defaults: { _controller: RajStorageBundle:Storage:direct }
+    requirements:
+        url: ".+"
+        _format:  json
+
+storage_stories:
+    pattern:  /storage/stories/{board_id}
+    defaults: { _controller: RajStorageBundle:Storage:stories }
+    requirements:
+        _format:  json
+
+storage_phases:
+    pattern:  /storage/phases/{board_id}
+    defaults: { _controller: RajStorageBundle:Storage:phases }
+    requirements:
+        _format:  json
+
